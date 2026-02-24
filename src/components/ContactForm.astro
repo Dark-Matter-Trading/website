@@ -1,17 +1,20 @@
 ---
 /**
- * Contact form powered by Formspree.
- * Replace YOUR_FORM_ID below with your actual Formspree form ID.
- * Create one at https://formspree.io
+ * Contact form powered by Netlify Forms.
+ * Submissions appear in Netlify dashboard → Forms.
+ * Set up email notifications in Netlify → Site settings → Forms → Form notifications.
  */
 ---
 
 <form
   id="contact-form"
-  action="https://formspree.io/f/xlgwaddy"
+  name="contact"
   method="POST"
+  data-netlify="true"
   class="contact-form"
 >
+  <input type="hidden" name="form-name" value="contact" />
+
   <div class="form-group">
     <label for="name" class="mono">NAME</label>
     <input type="text" id="name" name="name" required autocomplete="name" />
@@ -143,10 +146,10 @@
     statusEl.className = 'form-status mono';
 
     try {
-      const response = await fetch(form.action, {
+      const response = await fetch('/', {
         method: 'POST',
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' },
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString(),
       });
 
       if (response.ok) {
