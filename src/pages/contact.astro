@@ -1,0 +1,107 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
+
+<BaseLayout title="Contact | Dark Matter Trading" description="Get in touch with Dark Matter Trading.">
+  <section class="page-hero">
+    <span class="page-label mono">CONTACT // INQUIRIES</span>
+    <h1>Get in Touch.</h1>
+    <p>
+      For business inquiries, partnership discussions, or general questions,
+      reach out using the form below or contact us directly via email.
+    </p>
+  </section>
+
+  <section class="contact-section">
+    <div class="contact-info">
+      <div class="info-block">
+        <h4 class="mono">EMAIL</h4>
+        <a href="mailto:contact@darkmattertrading.eu">contact@darkmattertrading.eu</a>
+      </div>
+      <div class="info-block">
+        <h4 class="mono">LOCATION</h4>
+        <p>Sofia, Bulgaria</p>
+      </div>
+    </div>
+
+    <div class="contact-form-wrapper">
+      <ContactForm />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-hero {
+    padding: 8rem 0 6rem 0;
+    max-width: 900px;
+  }
+
+  .page-label {
+    color: var(--cherenkov);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    display: block;
+    margin-bottom: 2rem;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 2rem;
+  }
+
+  .page-hero p {
+    font-size: 1.1rem;
+    color: var(--slate);
+    max-width: 700px;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  .contact-section {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 6rem;
+    padding: 6rem 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .info-block h4 {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: var(--slate);
+    margin-bottom: 0.5rem;
+  }
+
+  .info-block a,
+  .info-block p {
+    font-size: 1rem;
+    color: var(--tungsten);
+    font-weight: 300;
+  }
+
+  .info-block a:hover {
+    color: var(--cherenkov);
+  }
+
+  @media (max-width: 768px) {
+    .page-hero {
+      padding: 5rem 0 4rem 0;
+    }
+
+    .contact-section {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+</style>

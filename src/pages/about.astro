@@ -1,0 +1,207 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="About | Dark Matter Trading" description="Learn about Dark Matter Trading — a proprietary quantitative research firm trading renewable energy on European markets.">
+  <section class="page-hero">
+    <span class="page-label mono">ABOUT // COMPANY</span>
+    <h1>Trading the<br />Energy Transition.</h1>
+    <p>
+      Dark Matter Trading is a proprietary quantitative trading firm
+      headquartered in Sofia, Bulgaria. We specialize in algorithmic
+      high-frequency trading on renewable energy markets — specifically solar
+      and wind energy on the Independent Bulgarian Energy Exchange (IBEX).
+    </p>
+  </section>
+
+  <section class="about-grid">
+    <div class="about-block">
+      <h3>What We Do</h3>
+      <p>
+        We build and operate fully automated trading systems that provide
+        liquidity to European energy markets. Our algorithms process real-time
+        weather data, grid telemetry, and market microstructure to execute
+        trades at speeds and precision impossible for human operators.
+      </p>
+    </div>
+
+    <div class="about-block">
+      <h3>Our Market</h3>
+      <p>
+        The Bulgarian energy market is at the frontier of Europe's renewable
+        transition. Solar and wind generation create systematic volatility that
+        our quantitative models are designed to capture. We are active
+        participants on IBEX, trading day-ahead and intraday products.
+      </p>
+    </div>
+
+    <div class="about-block">
+      <h3>Our Edge</h3>
+      <p>
+        Traditional energy traders rely on delayed macro-level forecasts. We
+        operate at a fundamentally different level — combining proprietary
+        atmospheric models, direct grid-state analysis, and machine learning to
+        price energy before the broader market reacts.
+      </p>
+    </div>
+
+    <div class="about-block">
+      <h3>Expansion</h3>
+      <p>
+        While IBEX remains our core market, we are actively developing
+        infrastructure to expand across the European Synchronous Grid. Adjacent
+        markets with growing renewable penetration present natural opportunities
+        for our technology and approach.
+      </p>
+    </div>
+  </section>
+
+  <section class="principles-section">
+    <div class="principles-header">
+      <h2>Operating Principles.</h2>
+    </div>
+    <div class="principles-list">
+      <div class="principle">
+        <span class="principle-num mono">01</span>
+        <div>
+          <h4>Proprietary Capital Only</h4>
+          <p>We trade exclusively with our own capital. No outside funds, no retail clients, no conflicts of interest.</p>
+        </div>
+      </div>
+      <div class="principle">
+        <span class="principle-num mono">02</span>
+        <div>
+          <h4>Research-Driven</h4>
+          <p>Every trading decision originates from quantitative research. We do not employ discretionary traders.</p>
+        </div>
+      </div>
+      <div class="principle">
+        <span class="principle-num mono">03</span>
+        <div>
+          <h4>Technology-First</h4>
+          <p>Infrastructure is not a support function — it is the product. Our systems are engineered for reliability, speed, and adaptability.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-hero {
+    padding: 8rem 0 6rem 0;
+    max-width: 900px;
+  }
+
+  .page-label {
+    color: var(--cherenkov);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    display: block;
+    margin-bottom: 2rem;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 2rem;
+  }
+
+  .page-hero p {
+    font-size: 1.1rem;
+    color: var(--slate);
+    max-width: 700px;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    padding: 6rem 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .about-block h3 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    letter-spacing: 0.03em;
+  }
+
+  .about-block p {
+    color: var(--slate);
+    font-size: 0.95rem;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  .principles-section {
+    padding: 6rem 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .principles-header h2 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    margin-bottom: 3rem;
+  }
+
+  .principles-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .principle {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    border-left: 1px solid var(--slate);
+    padding-left: 2rem;
+    transition: border-color 0.3s ease;
+  }
+
+  .principle:hover {
+    border-left-color: var(--cherenkov);
+  }
+
+  .principle-num {
+    color: var(--cherenkov);
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    flex-shrink: 0;
+  }
+
+  .principle h4 {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+
+  .principle p {
+    color: var(--slate);
+    font-size: 0.9rem;
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .page-hero {
+      padding: 5rem 0 4rem 0;
+    }
+
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    .principle {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }
+</style>

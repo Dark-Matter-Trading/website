@@ -1,0 +1,170 @@
+---
+/**
+ * Contact form powered by Formspree.
+ * Replace YOUR_FORM_ID below with your actual Formspree form ID.
+ * Create one at https://formspree.io
+ */
+---
+
+<form
+  id="contact-form"
+  action="https://formspree.io/f/YOUR_FORM_ID"
+  method="POST"
+  class="contact-form"
+>
+  <div class="form-group">
+    <label for="name" class="mono">NAME</label>
+    <input type="text" id="name" name="name" required autocomplete="name" />
+  </div>
+
+  <div class="form-group">
+    <label for="email" class="mono">EMAIL</label>
+    <input type="email" id="email" name="email" required autocomplete="email" />
+  </div>
+
+  <div class="form-group">
+    <label for="company" class="mono">COMPANY <span class="optional">(OPTIONAL)</span></label>
+    <input type="text" id="company" name="company" autocomplete="organization" />
+  </div>
+
+  <div class="form-group">
+    <label for="message" class="mono">MESSAGE</label>
+    <textarea id="message" name="message" rows="6" required></textarea>
+  </div>
+
+  <button type="submit" class="submit-btn mono">
+    <span class="btn-text">SEND MESSAGE</span>
+    <span class="btn-sending" style="display:none;">SENDING...</span>
+  </button>
+
+  <div id="form-status" class="form-status mono" aria-live="polite"></div>
+</form>
+
+<style>
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 600px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  label {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: var(--slate);
+  }
+
+  .optional {
+    opacity: 0.5;
+  }
+
+  input,
+  textarea {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--tungsten);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    padding: 1rem;
+    transition: border-color 0.3s ease;
+    outline: none;
+  }
+
+  input:focus,
+  textarea:focus {
+    border-color: rgba(0, 229, 255, 0.3);
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .submit-btn {
+    background: transparent;
+    border: 1px solid var(--tungsten);
+    color: var(--tungsten);
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: flex-start;
+  }
+
+  .submit-btn:hover {
+    border-color: var(--cherenkov);
+    color: var(--cherenkov);
+    box-shadow: 0 0 12px rgba(0, 229, 255, 0.15);
+  }
+
+  .submit-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .form-status {
+    font-size: 0.8rem;
+    min-height: 1.5em;
+  }
+
+  .form-status.success {
+    color: var(--cherenkov);
+  }
+
+  .form-status.error {
+    color: #ff4444;
+  }
+</style>
+
+<script is:inline>
+(function() {
+  const form = document.getElementById('contact-form');
+  if (!form) return;
+
+  const statusEl = document.getElementById('form-status');
+  const btnText = form.querySelector('.btn-text');
+  const btnSending = form.querySelector('.btn-sending');
+  const submitBtn = form.querySelector('.submit-btn');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    submitBtn.disabled = true;
+    btnText.style.display = 'none';
+    btnSending.style.display = 'inline';
+    statusEl.textContent = '';
+    statusEl.className = 'form-status mono';
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' },
+      });
+
+      if (response.ok) {
+        statusEl.textContent = 'Message sent successfully.';
+        statusEl.classList.add('success');
+        form.reset();
+      } else {
+        statusEl.textContent = 'Failed to send. Please email us directly.';
+        statusEl.classList.add('error');
+      }
+    } catch {
+      statusEl.textContent = 'Network error. Please email us directly.';
+      statusEl.classList.add('error');
+    }
+
+    submitBtn.disabled = false;
+    btnText.style.display = 'inline';
+    btnSending.style.display = 'none';
+  });
+})();
+</script>

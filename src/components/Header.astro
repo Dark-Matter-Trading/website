@@ -1,0 +1,188 @@
+---
+const currentPath = Astro.url.pathname;
+
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' },
+];
+---
+
+<header class="site-header">
+  <div class="logo-container">
+    <a href="/" aria-label="Dark Matter Trading home">
+      <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 20 2 L 36 11 L 36 29 L 20 38 L 4 29 L 4 11 Z" fill="none" stroke="#6A6A75" stroke-width="1.2"/>
+        <path d="M 12 15 L 20 20 L 28 15 L 28 25 L 20 30 L 12 25 Z" fill="none" stroke="#F4F4F5" stroke-width="1.5"/>
+        <line x1="20" y1="2" x2="20" y2="20" stroke="#6A6A75" stroke-width="1.2"/>
+        <circle cx="20" cy="20" r="3" fill="#00E5FF" class="node-pulse"/>
+      </svg>
+    </a>
+    <div class="brand-name">Dark Matter</div>
+  </div>
+
+  <nav class="main-nav" aria-label="Main navigation">
+    <button class="mobile-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-links">
+      {navLinks.map(link => (
+        <li>
+          <a
+            href={link.href}
+            class:list={[{ active: currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href)) }]}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+
+  <div class="terminal-status mono">
+    LOC: SOFIA<br />
+    SYS_TIME: <span class="glow" id="clock">00:00:00</span> UTC+2
+  </div>
+</header>
+
+<style>
+  .site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2.5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .logo-container a {
+    display: flex;
+    line-height: 0;
+  }
+
+  .node-pulse {
+    animation: pulse 4s infinite alternate ease-in-out;
+    transform-origin: center;
+  }
+
+  @keyframes pulse {
+    0% { filter: drop-shadow(0px 0px 1px #00E5FF); transform: scale(0.98); }
+    100% { filter: drop-shadow(0px 0px 5px #00E5FF); transform: scale(1.02); }
+  }
+
+  .brand-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+  }
+
+  .main-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+  }
+
+  .main-nav a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--slate);
+    transition: color 0.3s ease;
+  }
+
+  .main-nav a:hover,
+  .main-nav a.active {
+    color: var(--tungsten);
+  }
+
+  .mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .mobile-toggle span {
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--tungsten);
+    transition: all 0.3s ease;
+  }
+
+  .terminal-status {
+    font-size: 0.75rem;
+    color: var(--slate);
+    text-align: right;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 768px) {
+    .site-header {
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .mobile-toggle {
+      display: flex;
+    }
+
+    .nav-links {
+      display: none;
+      width: 100%;
+      flex-direction: column;
+      gap: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .nav-links.open {
+      display: flex;
+    }
+
+    .terminal-status {
+      text-align: left;
+      width: 100%;
+      order: 3;
+    }
+
+    .main-nav {
+      order: 2;
+    }
+  }
+</style>
+
+<script is:inline>
+  // Live clock (UTC+2 / Sofia)
+  function updateClock() {
+    const now = new Date();
+    const h = String((now.getUTCHours() + 2) % 24).padStart(2, '0');
+    const m = String(now.getUTCMinutes()).padStart(2, '0');
+    const s = String(now.getUTCSeconds()).padStart(2, '0');
+    const el = document.getElementById('clock');
+    if (el) el.textContent = `${h}:${m}:${s}`;
+    requestAnimationFrame(updateClock);
+  }
+  updateClock();
+
+  // Mobile nav toggle
+  const toggle = document.querySelector('.mobile-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  if (toggle && navLinks) {
+    toggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+  }
+</script>

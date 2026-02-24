@@ -1,0 +1,207 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout>
+  <section class="hero">
+    <h1>MEASURING<br />THE UNSEEN.</h1>
+    <p>
+      Dark Matter Trading is a proprietary quantitative research firm providing
+      algorithmic liquidity across European energy markets. We synthesize
+      unstructured physical telemetry with machine intelligence to price the
+      fundamental reality of the grid before it materializes in the order book.
+    </p>
+  </section>
+
+  <section class="capital-section">
+    <div class="capital-header">
+      <h2>Intellectual &amp;<br />Synthetic Capital.</h2>
+      <p>
+        We combine elite quantitative research with proprietary AI systems to
+        extract alpha from the volatile transition to renewable energy, modelling
+        the European power grid as a complex, non-linear system.
+      </p>
+    </div>
+    <div class="capital-details">
+      <div class="detail-item">
+        <h4 class="mono">QUANTITATIVE RESEARCH</h4>
+        <p>
+          Our research division translates stochastic grid dynamics into
+          deterministic trading strategies, leveraging deep expertise in
+          mathematics, physics, and machine learning.
+        </p>
+      </div>
+      <div class="detail-item">
+        <h4 class="mono">MACHINE INTELLIGENCE</h4>
+        <p>
+          Proprietary AI architectures continuously parse multi-dimensional
+          weather telemetry and market microstructure, dynamically adapting to
+          generation anomalies at speeds beyond human reaction times.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="architecture">
+    <div class="arch-card">
+      <span class="arch-number mono">SYS.01 // ENERGY_MARKETS</span>
+      <h3>Bulgarian Power Exchange</h3>
+      <p>
+        Active on the Independent Bulgarian Energy Exchange (IBEX), trading
+        solar and wind energy products with algorithmic precision across
+        day-ahead and intraday markets.
+      </p>
+    </div>
+
+    <div class="arch-card">
+      <span class="arch-number mono">SYS.02 // ATMOS_MODELING</span>
+      <h3>Weather Intelligence</h3>
+      <p>
+        High-resolution atmospheric modelling across complex topographies
+        resolves spatial energy distributions hours before conventional
+        forecasts. We trade the physical weather, not the forecast.
+      </p>
+    </div>
+
+    <div class="arch-card">
+      <span class="arch-number mono">SYS.03 // EXPANSION</span>
+      <h3>European Grid</h3>
+      <p>
+        Building on our IBEX foundation, we are expanding across the European
+        Synchronous Grid — targeting adjacent energy markets where renewable
+        intermittency creates systematic opportunity.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding: 10rem 0 6rem 0;
+    max-width: 950px;
+  }
+
+  .hero h1 {
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+    color: var(--slate);
+    max-width: 700px;
+    font-weight: 300;
+    border-left: 1px solid var(--cherenkov);
+    padding-left: 1.5rem;
+  }
+
+  .capital-section {
+    padding: 6rem 0;
+    border-top: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+  }
+
+  .capital-header h2 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+  }
+
+  .capital-header p {
+    color: var(--slate);
+    font-weight: 300;
+    font-size: 1.1rem;
+  }
+
+  .capital-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .detail-item {
+    border-left: 1px solid var(--slate);
+    padding-left: 1.5rem;
+    transition: border-color 0.3s ease;
+  }
+
+  .detail-item:hover {
+    border-left-color: var(--cherenkov);
+  }
+
+  .detail-item h4 {
+    color: var(--tungsten);
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+  }
+
+  .detail-item p {
+    color: var(--slate);
+    font-size: 0.95rem;
+    font-weight: 300;
+  }
+
+  .architecture {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    padding: 6rem 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .arch-card {
+    background: rgba(15, 15, 19, 0.6);
+    border: 1px solid var(--border);
+    padding: 3rem 2.5rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+  }
+
+  .arch-card:hover {
+    border-color: rgba(0, 229, 255, 0.3);
+    background: rgba(15, 15, 19, 0.9);
+  }
+
+  .arch-number {
+    color: var(--cherenkov);
+    font-size: 0.75rem;
+    margin-bottom: 2rem;
+    display: block;
+    letter-spacing: 0.1em;
+  }
+
+  .arch-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+
+  .arch-card p {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--slate);
+    font-size: 0.85rem;
+    font-weight: 400;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 900px) {
+    .capital-section {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 6rem 0 4rem 0;
+    }
+  }
+</style>

@@ -1,0 +1,66 @@
+<footer class="site-footer mono">
+  <div class="footer-left">
+    <div class="footer-company">DARK MATTER TRADING</div>
+    <div class="footer-legal">Sofia, Bulgaria</div>
+    <div class="footer-copy">&copy; {new Date().getFullYear()} Dark Matter Trading. All rights reserved.</div>
+  </div>
+  <div class="footer-right">
+    <div class="footer-contact">
+      INQUIRIES: <a href="mailto:contact@darkmattertrading.eu">contact@darkmattertrading.eu</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    padding: 4rem 0;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: 0.75rem;
+    color: var(--slate);
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+  }
+
+  .footer-company {
+    color: var(--tungsten);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.1em;
+  }
+
+  .footer-legal {
+    margin-bottom: 0.25rem;
+  }
+
+  .footer-right {
+    text-align: right;
+  }
+
+  .footer-contact {
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-contact a {
+    color: var(--tungsten);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .footer-contact a:hover {
+    color: var(--cherenkov);
+  }
+
+  @media (max-width: 768px) {
+    .site-footer {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2rem;
+    }
+
+    .footer-right {
+      text-align: left;
+    }
+  }
+</style>
