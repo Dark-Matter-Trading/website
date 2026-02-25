@@ -189,17 +189,36 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   @media (max-width: 768px) {
     .page-hero {
-      padding: 5rem 0 4rem 0;
+      padding: 4rem 0 3rem 0;
+    }
+
+    .page-hero h1 {
+      font-size: clamp(2rem, 8vw, 3rem);
+    }
+
+    .page-hero p {
+      font-size: 1rem;
     }
 
     .about-grid {
       grid-template-columns: 1fr;
       gap: 2.5rem;
+      padding: 4rem 0;
+    }
+
+    .principles-section {
+      padding: 4rem 0;
+    }
+
+    .principles-header h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
     }
 
     .principle {
       flex-direction: column;
       gap: 0.5rem;
+      padding-left: 1.5rem;
     }
   }
 </style>

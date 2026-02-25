@@ -130,35 +130,47 @@ const navLinks = [
 
   @media (max-width: 768px) {
     .site-header {
-      flex-wrap: wrap;
-      gap: 1.5rem;
+      padding: 1.5rem 0;
+    }
+
+    .logo-container {
+      gap: 12px;
+    }
+
+    .brand-name {
+      font-size: 0.95rem;
+      letter-spacing: 0.12rem;
     }
 
     .mobile-toggle {
-      display: flex;
-    }
-
-    .nav-links {
       display: none;
-      width: 100%;
-      flex-direction: column;
-      gap: 1rem;
-      padding-top: 1rem;
-      border-top: 1px solid var(--border);
     }
 
-    .nav-links.open {
-      display: flex;
+    .main-nav ul {
+      gap: 1.5rem;
+    }
+
+    .main-nav a {
+      font-size: 0.7rem;
     }
 
     .terminal-status {
-      text-align: left;
-      width: 100%;
-      order: 3;
+      display: none;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .brand-name {
+      font-size: 0.8rem;
+      letter-spacing: 0.08rem;
     }
 
-    .main-nav {
-      order: 2;
+    .main-nav ul {
+      gap: 1rem;
+    }
+
+    .main-nav a {
+      font-size: 0.65rem;
     }
   }
 </style>

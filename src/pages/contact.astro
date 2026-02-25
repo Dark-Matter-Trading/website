@@ -96,12 +96,26 @@ import ContactForm from '../components/ContactForm.astro';
 
   @media (max-width: 768px) {
     .page-hero {
-      padding: 5rem 0 4rem 0;
+      padding: 4rem 0 3rem 0;
+    }
+
+    .page-hero h1 {
+      font-size: clamp(2rem, 8vw, 3rem);
+    }
+
+    .page-hero p {
+      font-size: 1rem;
     }
 
     .contact-section {
       grid-template-columns: 1fr;
       gap: 3rem;
+      padding: 4rem 0;
+    }
+
+    .info-block a {
+      font-size: 0.9rem;
+      word-break: break-all;
     }
   }
 </style>

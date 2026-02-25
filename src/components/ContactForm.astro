@@ -14,7 +14,8 @@
   class="contact-form"
 >
   <input type="hidden" name="form-name" value="contact" />
-
+  <input type="hidden" name="subject" value="New contact form submission from %{formName}" />
+  
   <div class="form-group">
     <label for="name" class="mono">NAME</label>
     <input type="text" id="name" name="name" required autocomplete="name" />
@@ -123,6 +124,25 @@
 
   .form-status.error {
     color: #ff4444;
+  }
+
+  @media (max-width: 768px) {
+    .contact-form {
+      max-width: 100%;
+      gap: 1.5rem;
+    }
+
+    input,
+    textarea {
+      font-size: 16px;
+      padding: 0.85rem;
+    }
+
+    .submit-btn {
+      width: 100%;
+      text-align: center;
+      padding: 1rem;
+    }
   }
 </style>
 

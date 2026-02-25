@@ -150,7 +150,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .architecture {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
     padding: 6rem 0;
     border-top: 1px solid var(--border);
@@ -201,7 +201,36 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   @media (max-width: 768px) {
     .hero {
-      padding: 6rem 0 4rem 0;
+      padding: 5rem 0 3rem 0;
+    }
+
+    .hero h1 {
+      margin-bottom: 2rem;
+    }
+
+    .hero p {
+      font-size: 1rem;
+    }
+
+    .capital-section {
+      padding: 4rem 0;
+    }
+
+    .capital-header h2 {
+      font-size: 2rem;
+    }
+
+    .architecture {
+      padding: 4rem 0;
+      gap: 1.5rem;
+    }
+
+    .arch-card {
+      padding: 2rem 1.5rem;
+    }
+
+    .arch-number {
+      margin-bottom: 1.25rem;
     }
   }
 </style>
