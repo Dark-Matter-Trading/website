@@ -94,16 +94,16 @@
       let intensity = Math.min(speedSq / 5, 1);
 
       if (this.isAnomaly) {
-        ctx.fillStyle = '#00E5FF';
+        ctx.fillStyle = '#B8965A';
         ctx.shadowBlur = 6 + intensity * 3;
-        ctx.shadowColor = '#00E5FF';
+        ctx.shadowColor = '#B8965A';
       } else {
-        let r = Math.floor(106 - 106 * intensity);
-        let g = Math.floor(106 + 123 * intensity);
-        let b = Math.floor(117 + 138 * intensity);
+        let r = Math.floor(101 + 141 * intensity);
+        let g = Math.floor(99 + 141 * intensity);
+        let b = Math.floor(94 + 141 * intensity);
         ctx.fillStyle = `rgb(${r},${g},${b})`;
         ctx.shadowBlur = intensity * 4;
-        ctx.shadowColor = '#00E5FF';
+        ctx.shadowColor = '#B8965A';
       }
 
       ctx.beginPath();
@@ -142,8 +142,8 @@
 
           ctx.beginPath();
           ctx.strokeStyle = isNearMouse
-            ? `rgba(0,229,255,${0.2 * (1 - dist / CONNECTION_DIST)})`
-            : `rgba(106,106,117,${0.2 * (1 - dist / CONNECTION_DIST)})`;
+            ? `rgba(184,150,90,${0.2 * (1 - dist / CONNECTION_DIST)})`
+            : `rgba(101,99,94,${0.2 * (1 - dist / CONNECTION_DIST)})`;
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
           ctx.stroke();

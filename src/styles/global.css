@@ -1,10 +1,11 @@
+/* Colours from the logo SVGs in brand/Logo_final.zip */
 :root {
-  --void: #050507;
-  --surface: #0F0F13;
-  --tungsten: #F4F4F5;
-  --slate: #6A6A75;
-  --cherenkov: #00E5FF;
-  --border: rgba(255, 255, 255, 0.05);
+  --void: #111318;
+  --surface: #181B21;
+  --tungsten: #F2F0EB;
+  --slate: #9E9D99;
+  --gold: #B8965A;
+  --border: rgba(242, 240, 235, 0.06);
 }
 
 *,
@@ -30,7 +31,7 @@ body {
 }
 
 ::selection {
-  background: var(--cherenkov);
+  background: var(--gold);
   color: var(--void);
 }
 
@@ -41,7 +42,7 @@ a {
 }
 
 a:hover {
-  color: var(--cherenkov);
+  color: var(--gold);
 }
 
 img {
@@ -68,8 +69,8 @@ img {
 
 /* Glow accent */
 .glow {
-  color: var(--cherenkov);
-  text-shadow: 0 0 8px rgba(0, 229, 255, 0.4);
+  color: var(--gold);
+  text-shadow: 0 0 8px rgba(184, 150, 90, 0.4);
 }
 
 /* Responsive */
